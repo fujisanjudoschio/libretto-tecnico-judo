@@ -15,6 +15,7 @@
     --b-green: #2e8b57;
     --b-green-blue: linear-gradient(90deg, #2e8b57 50%, #0000ff 50%);
     --b-blue: #0000ff;
+    --b-blue-brown: linear-gradient(90deg, #0000ff 50%, #8b4513 50%);
     --b-brown: #8b4513;
 }
 
@@ -98,6 +99,7 @@ h1, h2, h3 {
 .green { background: var(--b-green); }
 .green-blue { background: var(--b-green-blue); }
 .blue { background: var(--b-blue); }
+.blue-brown { background: var(--b-blue-brown); }
 .brown { background: var(--b-brown); }
 
 /* Hero */
