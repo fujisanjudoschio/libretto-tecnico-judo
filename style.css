@@ -233,6 +233,10 @@ h3 {
     border-radius: 4px;
 }
 
+#ukemi .section-title::before {
+    background: #6c757d;
+}
+
 #white-yellow .section-title::before {
     background: var(--b-white-yellow);
 }
@@ -316,6 +320,11 @@ h3 {
 .kata .type {
     background: #f0fff4;
     color: #2f855a;
+}
+
+.ukemi-card .type {
+    background: #fff0f0;
+    color: #c53030;
 }
 
 .tech-card h3 {
