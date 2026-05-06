@@ -41,3 +41,28 @@ closeModal.onclick = hideModal;
 window.onclick = (e) => {
     if (e.target == modal) hideModal();
 };
+
+// Terminologia modal functionality
+const terminologiaBtn = document.getElementById('terminologiaBtn');
+const terminologiaModal = document.getElementById('terminologiaModal');
+const closeTerminologia = document.querySelector('.close-terminologia');
+
+if (terminologiaBtn && terminologiaModal && closeTerminologia) {
+    terminologiaBtn.addEventListener('click', () => {
+        terminologiaModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    });
+
+    const hideTerminologiaModal = () => {
+        terminologiaModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    };
+
+    closeTerminologia.addEventListener('click', hideTerminologiaModal);
+
+    window.addEventListener('click', (e) => {
+        if (e.target == terminologiaModal) {
+            hideTerminologiaModal();
+        }
+    });
+}
