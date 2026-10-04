@@ -14,7 +14,7 @@ document.querySelectorAll('.belt-dot').forEach(anchor => {
 // Video modal functionality
 const modal = document.getElementById('videoModal');
 const playerContainer = document.querySelector('.video-container');
-const closeModal = document.querySelector('.close-modal');
+const closeModal = document.querySelector('#videoModal .close-modal');
 
 document.querySelectorAll('.video-link').forEach(link => {
     link.addEventListener('click', function (e) {
@@ -41,6 +41,11 @@ closeModal.onclick = hideModal;
 window.onclick = (e) => {
     if (e.target == modal) hideModal();
 };
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+        hideModal();
+    }
+});
 
 // Terminologia modal functionality
 const terminologiaBtn = document.getElementById('terminologiaBtn');
@@ -62,6 +67,12 @@ if (terminologiaBtn && terminologiaModal && closeTerminologia) {
 
     window.addEventListener('click', (e) => {
         if (e.target == terminologiaModal) {
+            hideTerminologiaModal();
+        }
+    });
+    
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && terminologiaModal.style.display === 'flex') {
             hideTerminologiaModal();
         }
     });
