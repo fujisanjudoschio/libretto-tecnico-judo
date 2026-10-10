@@ -58,13 +58,19 @@
 
     <main class="container">
 
-        <!-- Terminologia -->
+        <!-- Terminologia e Bibliografia -->
         <section class="terminologia-section">
             <button id="terminologiaBtn" class="terminologia-btn">
                 <svg viewBox="0 0 24 24" fill="currentColor" class="terminologia-icon">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
                 </svg>
                 Glossario Terminologia
+            </button>
+            <button id="bibliografiaBtn" class="terminologia-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="terminologia-icon">
+                    <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+                </svg>
+                Bibliografia
             </button>
         </section>
 
@@ -726,6 +732,44 @@
     <div class="terminologia-item"><span class="jp-term">YUSEI GACHI</span><span class="it-trans">Vittoria per giudizio (superiorità)</span></div>
 </div>
 
+        </div>
+    </div>
+
+    <!-- Bibliografia Modal -->
+    <div id="bibliografiaModal" class="video-modal terminologia-modal">
+        <div class="modal-content terminologia-content">
+            <span class="close-modal close-bibliografia">&times;</span>
+            <h2 class="terminologia-title">Bibliografia Consigliata</h2>
+            
+            <div class="bibliografia-list">
+                <!-- Book 1 -->
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/41gKW+rYY6L.jpg" alt="Il padre del judo" class="book-cover">
+                    <div class="book-info">
+                        <h3>Il padre del judo. Una biografia di Jigoro Kano</h3>
+                        <p class="book-desc">Una biografia dettagliata sulla vita del fondatore del Judo. Esplora la sua filosofia, i suoi valori e come ha trasformato le antiche arti marziali in una disciplina educativa.</p>
+                        <a href="https://www.amazon.it/padre-judo-biografia-Jigoro-Kano/dp/8827217657/ref=sr_1_48" target="_blank" class="book-link">Vedi su Amazon</a>
+                    </div>
+                </div>
+                <!-- Book 2 -->
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/51-cmTS4kkL.jpg" alt="I fondamenti del judo" class="book-cover">
+                    <div class="book-info">
+                        <h3>I fondamenti del judo</h3>
+                        <p class="book-desc">Scritto da Jigoro Kano stesso, questo testo delinea i principi e le tecniche essenziali del Judo, fornendo una guida insostituibile per praticanti di ogni livello.</p>
+                        <a href="https://www.amazon.it/Fondamenti-del-judo-Jigoro-Kano/dp/8879843524/ref=sr_1_25" target="_blank" class="book-link">Vedi su Amazon</a>
+                    </div>
+                </div>
+                <!-- Book 3 -->
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/41setZDwUkL.jpg" alt="La mente prima dei muscoli" class="book-cover">
+                    <div class="book-info">
+                        <h3>La mente prima dei muscoli. Scritti del fondatore del judo</h3>
+                        <p class="book-desc">Una raccolta degli scritti di Kano in cui viene approfondito l'aspetto mentale e spirituale del Judo, ponendo l'accento sulla crescita interiore e l'impegno sociale.</p>
+                        <a href="https://www.amazon.it/mente-prima-muscoli-scritti-fondatore/dp/8827221530/ref=sr_1_12" target="_blank" class="book-link">Vedi su Amazon</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

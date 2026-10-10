@@ -457,6 +457,8 @@ h3 {
     padding: 20px 0 0 0;
     display: flex;
     justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .terminologia-btn {
@@ -507,11 +509,13 @@ h3 {
     padding-bottom: 10px;
 }
 
-.close-terminologia {
+.close-terminologia,
+.close-bibliografia {
     color: var(--text);
 }
 
-.close-terminologia:hover {
+.close-terminologia:hover,
+.close-bibliografia:hover {
     color: var(--primary);
 }
 
@@ -550,4 +554,75 @@ h3 {
     font-size: 1.3rem;
     border-left: 4px solid var(--accent);
     padding-left: 10px;
+}
+
+/* Bibliografia */
+.bibliografia-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.book-card {
+    display: flex;
+    gap: 20px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+    align-items: center;
+}
+
+.book-cover {
+    width: 100px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.book-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+.book-desc {
+    font-size: 0.95rem;
+    color: #4a4a4a;
+    line-height: 1.5;
+}
+
+.book-link {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--primary);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.book-link:hover {
+    background: #00308a;
+}
+
+@media (max-width: 600px) {
+    .book-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .book-cover {
+        width: 120px;
+    }
 }

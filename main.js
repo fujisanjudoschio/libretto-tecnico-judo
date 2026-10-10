@@ -77,3 +77,34 @@ if (terminologiaBtn && terminologiaModal && closeTerminologia) {
         }
     });
 }
+
+// Bibliografia modal functionality
+const bibliografiaBtn = document.getElementById('bibliografiaBtn');
+const bibliografiaModal = document.getElementById('bibliografiaModal');
+const closeBibliografia = document.querySelector('.close-bibliografia');
+
+if (bibliografiaBtn && bibliografiaModal && closeBibliografia) {
+    bibliografiaBtn.addEventListener('click', () => {
+        bibliografiaModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    });
+
+    const hideBibliografiaModal = () => {
+        bibliografiaModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    };
+
+    closeBibliografia.addEventListener('click', hideBibliografiaModal);
+
+    window.addEventListener('click', (e) => {
+        if (e.target == bibliografiaModal) {
+            hideBibliografiaModal();
+        }
+    });
+    
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && bibliografiaModal.style.display === 'flex') {
+            hideBibliografiaModal();
+        }
+    });
+}
