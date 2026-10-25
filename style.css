@@ -388,6 +388,16 @@ h3 {
     margin-top: 80px;
 }
 
+.footer-privacy {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    margin-top: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+}
+
 
 /* Responsive */
 

@@ -43,7 +43,7 @@ document.addEventListener('click', (e) => {
             if (videoId && playerContainer) {
                 const list = url.searchParams.get('list');
                 const listParam = list ? `&list=${encodeURIComponent(list)}` : '';
-                playerContainer.innerHTML = `<iframe id="videoPlayer" src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0${listParam}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                playerContainer.innerHTML = `<iframe id="videoPlayer" src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0${listParam}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
                 openModal(videoModal);
             }
         } catch (err) {
