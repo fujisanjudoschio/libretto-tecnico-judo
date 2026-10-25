@@ -237,6 +237,10 @@ h3 {
     background: #6c757d;
 }
 
+#kumi-kata .section-title::before {
+    background: #6d28d9;
+}
+
 #white-yellow .section-title::before {
     background: var(--b-white-yellow);
 }
@@ -325,6 +329,11 @@ h3 {
 .ukemi-card .type {
     background: #fff0f0;
     color: #c53030;
+}
+
+.kumi-kata-card .type {
+    background: #ede9fe;
+    color: #6d28d9;
 }
 
 .tech-card h3 {

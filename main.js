@@ -22,9 +22,11 @@ document.querySelectorAll('.video-link').forEach(link => {
         e.preventDefault();
         const url = this.getAttribute('href');
         const videoId = url.split('v=')[1]?.split('&')[0];
+        const listMatch = url.match(/[?&]list=([^&]+)/);
+        const listParam = listMatch ? `&list=${listMatch[1]}` : '';
         if (videoId) {
             // Recreate iframe to ensure a fresh player state
-            playerContainer.innerHTML = `<iframe id="videoPlayer" src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            playerContainer.innerHTML = `<iframe id="videoPlayer" src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0${listParam}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden'; // Prevent scrolling
         }
