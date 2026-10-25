@@ -277,6 +277,10 @@ h3 {
     background: var(--b-blue);
 }
 
+#blue-brown .section-title::before {
+    background: var(--b-blue-brown);
+}
+
 #brown .section-title::before {
     background: var(--b-brown);
 }
