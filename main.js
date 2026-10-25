@@ -1,111 +1,70 @@
-// Smooth scrolling for navigation dots
-document.querySelectorAll('.belt-dot').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+const videoModal = document.getElementById('videoModal');
+const playerContainer = videoModal?.querySelector('.video-container');
+let activeModal = null;
 
-// Video modal functionality
-const modal = document.getElementById('videoModal');
-const playerContainer = document.querySelector('.video-container');
-const closeModal = document.querySelector('#videoModal .close-modal');
+function openModal(modal) {
+    if (!modal) return;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    activeModal = modal;
+}
 
-document.querySelectorAll('.video-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const url = this.getAttribute('href');
-        const videoId = url.split('v=')[1]?.split('&')[0];
-        const listMatch = url.match(/[?&]list=([^&]+)/);
-        const listParam = listMatch ? `&list=${listMatch[1]}` : '';
-        if (videoId) {
-            // Recreate iframe to ensure a fresh player state
-            playerContainer.innerHTML = `<iframe id="videoPlayer" src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0${listParam}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        }
-    });
-});
-
-const hideModal = () => {
+function closeModal(modal = activeModal) {
+    if (!modal) return;
     modal.style.display = 'none';
-    playerContainer.innerHTML = ''; // Remove iframe to stop video
-    document.body.style.overflow = 'auto';
-};
+    if (modal === videoModal && playerContainer) {
+        playerContainer.innerHTML = ''; // Ferma il video YouTube
+    }
+    document.body.style.overflow = '';
+    if (activeModal === modal) activeModal = null;
+}
 
-closeModal.onclick = hideModal;
-window.onclick = (e) => {
-    if (e.target == modal) hideModal();
-};
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.style.display === 'flex') {
-        hideModal();
+// Delegazione eventi per click su modali, bottoni e video
+document.addEventListener('click', (e) => {
+    if (e.target.closest('#terminologiaBtn')) {
+        openModal(document.getElementById('terminologiaModal'));
+        return;
+    }
+
+    if (e.target.closest('#bibliografiaBtn')) {
+        openModal(document.getElementById('bibliografiaModal'));
+        return;
+    }
+
+    const videoLink = e.target.closest('.video-link');
+    if (videoLink) {
+        e.preventDefault();
+        try {
+            const url = new URL(videoLink.getAttribute('href'), window.location.href);
+            let videoId = url.searchParams.get('v');
+            if (!videoId && url.hostname.includes('youtu.be')) {
+                videoId = url.pathname.slice(1);
+            }
+            if (videoId && playerContainer) {
+                const list = url.searchParams.get('list');
+                const listParam = list ? `&list=${encodeURIComponent(list)}` : '';
+                playerContainer.innerHTML = `<iframe id="videoPlayer" src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0${listParam}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                openModal(videoModal);
+            }
+        } catch (err) {
+            console.error('URL non valido:', err);
+        }
+        return;
+    }
+
+    if (e.target.closest('.close-modal')) {
+        closeModal(e.target.closest('.video-modal'));
+        return;
+    }
+
+    if (e.target.classList.contains('video-modal')) {
+        closeModal(e.target);
     }
 });
 
-// Terminologia modal functionality
-const terminologiaBtn = document.getElementById('terminologiaBtn');
-const terminologiaModal = document.getElementById('terminologiaModal');
-const closeTerminologia = document.querySelector('.close-terminologia');
-
-if (terminologiaBtn && terminologiaModal && closeTerminologia) {
-    terminologiaBtn.addEventListener('click', () => {
-        terminologiaModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    });
-
-    const hideTerminologiaModal = () => {
-        terminologiaModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    };
-
-    closeTerminologia.addEventListener('click', hideTerminologiaModal);
-
-    window.addEventListener('click', (e) => {
-        if (e.target == terminologiaModal) {
-            hideTerminologiaModal();
-        }
-    });
-    
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && terminologiaModal.style.display === 'flex') {
-            hideTerminologiaModal();
-        }
-    });
-}
-
-// Bibliografia modal functionality
-const bibliografiaBtn = document.getElementById('bibliografiaBtn');
-const bibliografiaModal = document.getElementById('bibliografiaModal');
-const closeBibliografia = document.querySelector('.close-bibliografia');
-
-if (bibliografiaBtn && bibliografiaModal && closeBibliografia) {
-    bibliografiaBtn.addEventListener('click', () => {
-        bibliografiaModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    });
-
-    const hideBibliografiaModal = () => {
-        bibliografiaModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    };
-
-    closeBibliografia.addEventListener('click', hideBibliografiaModal);
-
-    window.addEventListener('click', (e) => {
-        if (e.target == bibliografiaModal) {
-            hideBibliografiaModal();
-        }
-    });
-    
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && bibliografiaModal.style.display === 'flex') {
-            hideBibliografiaModal();
-        }
-    });
-}
+// Chiusura con tasto Escape
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && activeModal) {
+        closeModal(activeModal);
+    }
+});
