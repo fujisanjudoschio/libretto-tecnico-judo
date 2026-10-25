@@ -18,7 +18,6 @@ const closeModal = document.querySelector('#videoModal .close-modal');
 
 document.querySelectorAll('.video-link').forEach(link => {
     link.addEventListener('click', function (e) {
-        if (this.classList.contains('empty')) return;
         e.preventDefault();
         const url = this.getAttribute('href');
         const videoId = url.split('v=')[1]?.split('&')[0];

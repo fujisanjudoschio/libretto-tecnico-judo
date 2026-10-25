@@ -79,12 +79,6 @@ h3 {
     opacity: 0.9;
 }
 
-.brand-logo {
-    height: 50px;
-    width: auto;
-    display: block;
-}
-
 .brand-text {
     display: flex;
     flex-direction: column;
@@ -378,12 +372,6 @@ h3 {
 .video-link svg {
     width: 18px;
     height: 18px;
-}
-
-.video-link.empty {
-    background: #eee;
-    color: #bbb;
-    pointer-events: none;
 }
 
 
