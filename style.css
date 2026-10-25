@@ -241,6 +241,10 @@ h3 {
     background: #6d28d9;
 }
 
+#shintai .section-title::before {
+    background: #0284c7;
+}
+
 #white-yellow .section-title::before {
     background: var(--b-white-yellow);
 }
@@ -334,6 +338,11 @@ h3 {
 .kumi-kata-card .type {
     background: #ede9fe;
     color: #6d28d9;
+}
+
+.shintai-card .type {
+    background: #e0f2fe;
+    color: #0369a1;
 }
 
 .tech-card h3 {
