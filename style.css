@@ -209,7 +209,8 @@ h3 {
 
 /* Belt Sections */
 .belt-section {
-    padding: 80px 0 40px;
+    padding: 35px 0 10px;
+    scroll-margin-top: 90px;
 }
 
 .section-title {
@@ -405,6 +406,16 @@ h3 {
         height: auto;
         min-height: 220px;
         padding: 30px 15px;
+    }
+
+    .belt-section {
+        padding: 25px 0 10px;
+        scroll-margin-top: 130px;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
     }
 }
 
