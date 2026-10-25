@@ -462,6 +462,25 @@ h3 {
     height: 100%;
 }
 
+/* Video modal: close button above the player, not over YouTube's controls */
+.video-modal-content {
+    overflow: visible;
+}
+
+.video-modal-content .video-container {
+    border-radius: 16px;
+}
+
+.video-modal-content .close-modal {
+    top: -52px;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Terminologia Button and Section */
 .terminologia-section {
     padding: 20px 0 0 0;
