@@ -9,7 +9,7 @@ Questo libretto è una risorsa interattiva e mobile-responsive che raccoglie tut
 ## ✨ Caratteristiche Principali
 
 - **Organizzazione per Cinture**: Le tecniche sono suddivise chiaramente in base al grado (es. Da Bianca a Mezza Gialla, Da Gialla a Mezza Arancio, ecc.).
-- **Video Tutorial**: Ogni tecnica include un link diretto ai video ufficiali del **Kodokan** su YouTube per uno studio visivo accurato.
+- **Video Tutorial**: Ogni tecnica include un link a un video dimostrativo su YouTube, selezionato per uno studio visivo accurato.
 - **Interfaccia Moderna**: Design pulito, reattivo e con navigazione rapida tramite i "punti cintura" nell'intestazione.
 - **Target 8-14 anni**: Linguaggio e struttura pensati per giovani judoisti.
 
